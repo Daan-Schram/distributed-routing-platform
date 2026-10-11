@@ -1,0 +1,14 @@
+{% macro log_panel(id, badge, title) %}
+<div class="card log-card">
+  <div class="card-header">
+    <span class="badge">{{ badge }}</span>
+    <span class="card-title">{{ title }}</span>
+    <div class="log-controls">
+      <button class="btn-autoscroll" data-panel="{{ id }}">Auto↓ ON</button>
+      <button class="btn-clear" data-panel="{{ id }}">Clear</button>
+      <span class="line-count" id="lc-{{ id }}">0</span>
+    </div>
+  </div>
+  <div class="log-output" id="log-{{ id }}"><span class="cursor"></span></div>
+</div>
+{% endmacro %}

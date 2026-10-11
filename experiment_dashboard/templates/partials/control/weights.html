@@ -1,0 +1,26 @@
+<div id="checkpoint-section" style="display:none; margin-top:12px">
+  <div class="section-label">Weights</div>
+  <div class="radio-field">
+    <input type="radio" name="q-weights" id="q-weights-fresh" value="fresh" checked>
+    <label for="q-weights-fresh">Random weights, don't save<span class="hint">Every repeat starts from random weights. The existing checkpoint is left untouched.</span></label>
+  </div>
+  <div class="radio-field">
+    <input type="radio" name="q-weights" id="q-weights-scratch" value="scratch">
+    <label for="q-weights-scratch">Train from scratch, save<span class="hint">Wipes the checkpoint first. Repeat 1 trains from random weights and saves continuously; repeats 2+ continue where the previous repeat stopped (warm-start chain).</span></label>
+  </div>
+  <div class="radio-field" id="q-weights-continue-row">
+    <input type="radio" name="q-weights" id="q-weights-continue" value="continue">
+    <label for="q-weights-continue">Continue from the checkpoint, save<span class="hint">Repeat 1 loads the saved weights and keeps saving; repeats 2+ continue where the previous repeat stopped.</span></label>
+  </div>
+  <div class="radio-field" id="q-weights-evaluate-row">
+    <input type="radio" name="q-weights" id="q-weights-evaluate" value="evaluate">
+    <label for="q-weights-evaluate">Evaluate the checkpoint, don't save<span class="hint">Every repeat loads the same saved weights; nothing is written.</span></label>
+  </div>
+  <div id="q-weights-sa-hint" class="form-hint" style="display:none; margin:4px 0 0 24px;">SA wipes the checkpoint between candidates, so only the first two options apply: "Train from scratch" is the warm start (repeat 1 trains, repeats 2+ continue from it).</div>
+  <div style="display:flex; align-items:center; gap:10px; margin:8px 0 0 24px;">
+    <span class="form-hint">Checkpoint:</span>
+    <span id="ckpt-status-text" class="form-hint">checking…</span>
+    <button class="btn btn-secondary btn-small" type="button" id="ckpt-reset-btn">Reset</button>
+  </div>
+  <div id="q-weights-warn" style="display:none; font-size:11px; color:var(--red); margin:6px 0 0 24px;"></div>
+</div>

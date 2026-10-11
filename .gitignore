@@ -1,0 +1,21 @@
+# Python
+/.venv/
+__pycache__/
+*.pyc
+
+# Runtime output (results, checkpoints, state)
+/output/
+cache
+
+# Local config and secrets
+/.env
+.env.*
+!.env.vms.example
+*.pem
+*.key
+layer2_message_bus/docker-compose.override.yml
+
+# Editors and tools
+/.idea/
+/.claude/
+/CLAUDE.md

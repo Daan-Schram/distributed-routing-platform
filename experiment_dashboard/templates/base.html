@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DDQR - {% block title %}{% endblock %}</title>
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+  <link rel="stylesheet" href="/static/css/base.css">
+  {% block head %}{% endblock %}
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-mark">DDQR</div>
+    <div class="logo-sub">Experiment Dashboard</div>
+  </div>
+  {% block header_extra %}{% endblock %}
+  <div id="header-status" class="header-status">
+    <span class="hst-dot" id="hst-dot"></span>
+    <span id="hst-text">—</span>
+  </div>
+  <nav class="header-nav">
+    <a href="/" class="nav-btn{{ ' active' if page == 'control' }}">Control</a>
+    <a href="/live" class="nav-btn{{ ' active' if page == 'live' }}">Live Experiment</a>
+    <a href="/analyze" class="nav-btn{{ ' active' if page == 'analyze' }}">Analyze Results</a>
+    {% block nav_extra %}{% endblock %}
+  </nav>
+</header>
+
+{% block content %}{% endblock %}
+
+<script type="module" src="/static/js/{{ page }}/main.js"></script>
+</body>
+</html>

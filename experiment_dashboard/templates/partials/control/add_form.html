@@ -1,0 +1,47 @@
+<div class="form-grid">
+  <div class="form-group">
+    <label for="q-algorithm">Algorithm</label>
+    <select id="q-algorithm"></select>
+  </div>
+  <div class="form-group" id="q-speed-ema-group" style="display:none">
+    <label for="q-speed-ema" id="q-speed-ema-label"></label>
+    <input type="number" id="q-speed-ema" step="any">
+  </div>
+  <div class="form-group">
+    <label id="net-label">Network</label>
+    <input type="hidden" id="q-network" name="network_name">
+    <div class="net-dropdown" id="net-dropdown"
+         role="combobox" aria-expanded="false"
+         aria-haspopup="listbox" aria-labelledby="net-label">
+      <div class="net-trigger" id="net-trigger" tabindex="0" aria-controls="net-listbox">
+        <span class="net-trigger-placeholder" id="net-trigger-inner">Loading…</span>
+        <span class="net-chevron">&#9660;</span>
+      </div>
+      <div class="net-listbox" id="net-listbox" role="listbox" aria-labelledby="net-label"></div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="q-workers">Workers Per VM</label>
+    <input type="number" id="q-workers" value="2" min="1" max="16">
+  </div>
+  <div class="form-group">
+    <label for="q-repeats">Repeats</label>
+    <input type="number" id="q-repeats" value="1" min="1" max="20">
+  </div>
+  <div class="form-group">
+    <label for="q-broadcast">Broadcast rate (steps)</label>
+    <input type="number" id="q-broadcast" value="50" min="10">
+  </div>
+  <div class="form-group">
+    <label for="q-stats">Stats print (steps)</label>
+    <input type="number" id="q-stats" value="100" min="1">
+  </div>
+  <div class="form-group">
+    <label for="q-max-runtime">Max runtime (min)</label>
+    <input type="number" id="q-max-runtime" placeholder="no limit" min="1">
+  </div>
+  <div class="form-group">
+    <label for="q-sumo-seed" title="Repeat i uses seed + i − 1. Empty: SUMO's default seed on every run.">SUMO seed</label>
+    <input type="number" id="q-sumo-seed" placeholder="default" min="0" step="1">
+  </div>
+</div>

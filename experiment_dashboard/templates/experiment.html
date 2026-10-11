@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% from "partials/live/log_panel.html" import log_panel %}
+{% block title %}Live Experiment{% endblock %}
+{% block head %}<link rel="stylesheet" href="/static/css/live.css">{% endblock %}
+
+{% block header_extra %}
+<div class="status-bar">
+  <div class="indicator"><div class="dot" id="dot-kafka"></div><span>Kafka</span></div>
+  <div class="indicator"><div class="dot" id="dot-faust"></div><span>Faust</span></div>
+  <div class="indicator"><div class="dot" id="dot-learner"></div><span>Learner</span></div>
+  <div class="indicator"><div class="dot" id="dot-sim"></div><span>Simulation</span></div>
+</div>
+{% endblock %}
+
+{% block content %}
+<main>
+  <!-- Left column: 4 log panels always visible -->
+  <div class="left-col">
+    <div class="logs-grid">
+      {{ log_panel('sim', 'L1', 'Simulation') }}
+      {{ log_panel('faust', 'L3', 'Faust Workers') }}
+      {{ log_panel('kafka', 'L2', 'Kafka') }}
+      {{ log_panel('learner', 'L4', 'Learner') }}
+    </div>
+  </div>
+
+  <!-- Right column: Resources on top, Kafka Consumer Group below -->
+  <div class="right-col">
+    <div class="card" id="res-card">
+      <div class="card-header">
+        <span class="badge">R</span>
+        <span class="card-title">Resources</span>
+      </div>
+      <div class="resource-grid" id="resource-grid">
+        <div id="res-empty">No resource data yet</div>
+      </div>
+    </div>
+
+    <div class="card" id="kafka">
+      <div class="card-header">
+        <span class="badge">K</span>
+        <span class="card-title">Kafka Consumer Group</span>
+      </div>
+      <pre id="kafka-output">— polling…</pre>
+    </div>
+  </div>
+</main>
+{% endblock %}

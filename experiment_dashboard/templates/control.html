@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Control{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="/static/css/control.css">
+<script src="/static/js/netmap.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="page">
+
+  <!-- Add to queue form -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge">+</span>
+      <span>Add Experiment to Queue</span>
+    </div>
+    <div class="card-body">
+      {% include "partials/control/add_form.html" %}
+      {% include "partials/control/weights.html" %}
+      {% include "partials/control/run_options.html" %}
+      {% include "partials/control/params.html" %}
+      <div class="btn-row">
+        <button class="btn btn-primary" id="btn-add">+ Add to queue</button>
+      </div>
+    </div>
+  </div>
+
+  {% include "partials/control/sa_status_card.html" %}
+  {% include "partials/control/queue_card.html" %}
+
+</div>
+{% endblock %}

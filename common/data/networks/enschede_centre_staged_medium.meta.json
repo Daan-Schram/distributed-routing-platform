@@ -1,0 +1,28 @@
+{
+  "duration": 1800,
+  "period": null,
+  "phases": [
+    {
+      "duration": 900,
+      "period": 2.0
+    },
+    {
+      "duration": 900,
+      "period": 1.0
+    }
+  ],
+  "created_at": "2026-10-08T10:05:00.741967+00:00",
+  "fringe_factor": 5.0,
+  "seed": 1,
+  "geometry": {
+    "center": [
+      52.2215,
+      6.8937
+    ],
+    "dist": 1000,
+    "highway_types": "primary,secondary,tertiary,unclassified",
+    "edges": 309,
+    "created_at": "2026-10-08T09:57:37.144700+00:00",
+    "osm_file": "common/data/osm/enschede_centre_staged_medium.osm"
+  }
+}

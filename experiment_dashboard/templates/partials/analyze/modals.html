@@ -1,0 +1,16 @@
+{% macro modal(id, title, confirm_label, width=380) %}
+<div id="{{ id }}" class="modal">
+  <div class="modal-box" style="max-width:{{ width }}px;">
+    <div class="modal-title">{{ title }}</div>
+    <div class="modal-body" id="{{ id }}-body">{{ caller() }}</div>
+    <div class="modal-buttons">
+      <button class="modal-cancel" data-close="{{ id }}">Cancel</button>
+      <button class="modal-confirm" id="{{ id }}-confirm">{{ confirm_label }}</button>
+    </div>
+  </div>
+</div>
+{% endmacro %}
+
+{% call modal('delete-modal', 'Delete experiment?', 'Delete') %}This permanently removes the JSON file. This cannot be undone.{% endcall %}
+{% call modal('delete-all-modal', 'Delete ALL experiments?', 'Delete All') %}This permanently removes ALL JSON files in the metrics directory. This cannot be undone.{% endcall %}
+{% call modal('delete-group-modal', 'Delete group?', 'Delete Group', 420) %}{% endcall %}

@@ -1,0 +1,42 @@
+<div class="check-field" style="margin-top:8px">
+  <input type="checkbox" id="q-use-gui">
+  <label for="q-use-gui">Enable SUMO GUI</label>
+</div>
+
+<div class="check-field" style="margin-top:8px">
+  <input type="checkbox" id="q-capture-trajectories">
+  <label for="q-capture-trajectories">Capture vehicle trajectories (debug — enables route/loop map in Analyze)</label>
+</div>
+
+<div class="check-field" style="margin-top:8px">
+  <input type="checkbox" id="q-telemetry" checked>
+  <label for="q-telemetry">Telemetry <span style="color:var(--text-dim)">(resource monitors; off for overhead measurements)</span></label>
+</div>
+
+<div class="check-field" style="margin-top:8px">
+  <input type="checkbox" id="q-log-proxies" checked>
+  <label for="q-log-proxies">Proxy layer logs to the dashboard <span style="color:var(--text-dim)">(live log panels; off for overhead measurements)</span></label>
+</div>
+
+<div id="jam-section" class="check-field" style="margin-top:8px">
+  <input type="checkbox" id="q-jam-enabled">
+  <label for="q-jam-enabled">Create bottleneck: slow the busiest shortest-path edges (invisible to static Dijkstra)</label>
+</div>
+<div id="jam-fields" class="form-grid" style="display:none; margin-top:8px">
+  <div class="form-group">
+    <label for="q-jam-edges">Edges to jam</label>
+    <input type="number" id="q-jam-edges" value="4" min="1" max="30">
+  </div>
+  <div class="form-group">
+    <label for="q-jam-factor">Slowdown factor</label>
+    <input type="number" id="q-jam-factor" value="12" min="1.5" step="0.5">
+  </div>
+  <div class="form-group">
+    <label>Selected edges</label>
+    <div id="jam-preview" style="font-size:12px; color:var(--text-dim); padding-top:7px;">&mdash;</div>
+  </div>
+</div>
+<div id="jam-map-wrap" style="display:none; margin-top:8px">
+  <canvas id="jam-map" style="display:block; width:100%; height:320px;"></canvas>
+  <div class="form-hint" style="margin-top:4px;">Line width = how many shortest paths use the edge. Red = jammed.</div>
+</div>

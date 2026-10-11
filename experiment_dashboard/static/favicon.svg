@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- edges -->
+  <line x1="5"  y1="6"  x2="18" y2="4"  stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="5"  y1="6"  x2="14" y2="17" stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="18" y1="4"  x2="27" y2="12" stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="18" y1="4"  x2="14" y2="17" stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="27" y1="12" x2="14" y2="17" stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="27" y1="12" x2="25" y2="26" stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="14" y1="17" x2="7"  y2="27" stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="14" y1="17" x2="25" y2="26" stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- nodes -->
+  <circle cx="5"  cy="6"  r="2.5" fill="#555"/>
+  <circle cx="18" cy="4"  r="2.5" fill="#555"/>
+  <circle cx="27" cy="12" r="2.5" fill="#555"/>
+  <circle cx="14" cy="17" r="3"   fill="#444"/>
+  <circle cx="7"  cy="27" r="2.5" fill="#555"/>
+  <circle cx="25" cy="26" r="2.5" fill="#555"/>
+</svg>

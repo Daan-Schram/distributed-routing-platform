@@ -1,0 +1,93 @@
+<div id="params-section" class="params-section" style="display:none">
+  <div class="params-label" id="params-label">Parameters</div>
+  <div class="tab-group">
+    <button class="tab active" data-tab="default">Default</button>
+    <button class="tab" data-tab="custom">Custom</button>
+    <button class="tab" data-tab="grid">Grid Search</button>
+    <button class="tab" data-tab="sa">SA Tuning</button>
+  </div>
+
+  <!-- Default parameters panel -->
+  <div id="panel-default" class="params-panel">
+    <div id="params-defaults-info" style="font-size:12px; color:var(--text-dim);"></div>
+  </div>
+
+  <!-- Custom hyperparameters panel -->
+  <div id="panel-custom" class="params-panel" style="display:none">
+    <div id="params-custom" class="form-grid" style="margin-top:4px;"></div>
+    <div style="display:flex; justify-content:flex-end; margin-top:6px;">
+      <button class="btn btn-secondary btn-small" type="button" id="params-reset">Reset to defaults</button>
+    </div>
+  </div>
+
+  <!-- SA Tuning panel -->
+  <div id="panel-sa" class="params-panel" style="display:none">
+    <div class="form-hint" style="margin-bottom:12px;">Finds the best hyperparameter combination using Simulated Annealing. Runs one experiment at a time through the existing queue, automatically accepting or rejecting based on ATT.</div>
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:4px;">
+      <span class="section-label">Annealing settings</span>
+      <button class="btn btn-secondary btn-small" type="button" id="sa-reset-settings">Reset to defaults</button>
+    </div>
+    <div class="form-grid" style="margin-bottom:12px;">
+      <div class="form-group">
+        <label for="sa-n-iter">Iterations</label>
+        <input type="number" id="sa-n-iter" value="80" min="5" max="500">
+      </div>
+      <div class="form-group">
+        <label for="sa-t-init">Initial temperature</label>
+        <input type="number" id="sa-t-init" value="800" min="10" step="50">
+      </div>
+      <div class="form-group">
+        <label for="sa-alpha">Cooling factor &alpha;</label>
+        <input type="number" id="sa-alpha" value="0.97" min="0.80" max="0.999" step="0.005">
+      </div>
+      <div class="form-group">
+        <label for="sa-sigma">Perturbation &sigma;</label>
+        <input type="number" id="sa-sigma" value="0.4" min="0.05" max="2.0" step="0.05">
+      </div>
+      <div class="form-group">
+        <label for="sa-n-perturb">Params per step</label>
+        <input type="number" id="sa-n-perturb" value="1" min="1" max="4">
+      </div>
+      <div class="form-group">
+        <label for="sa-score-mode">Score from</label>
+        <select id="sa-score-mode">
+          <option value="">auto (last when warm start, else mean)</option>
+          <option value="mean">mean of all repeats</option>
+          <option value="mean_after_first">mean of repeats 2+</option>
+          <option value="last">last repeat</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-hint" style="margin-bottom:8px;">Repeats and warm start come from the <b>Repeats</b> and <b>Weights</b> settings above.</div>
+    <div id="sa-schedule-preview" class="form-hint" style="font-family:var(--mono); margin:-4px 0 12px;"></div>
+
+    <!-- SA search space -->
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:4px;">
+      <span class="section-label">Search space</span>
+      <button class="btn btn-secondary btn-small" type="button" id="sa-reset-space">Reset to defaults</button>
+    </div>
+    <div class="form-hint" style="margin-bottom:8px;">Tick a parameter to tune it; give the min/max range SA may search within. <span style="color:var(--text-mid)">start</span> shows where the search begins (the default if it falls in range, else the range midpoint).</div>
+    <div id="sa-space-grid" style="display:grid; grid-template-columns:auto 1fr auto; gap:6px 10px; align-items:center; margin-bottom:14px;"></div>
+
+    <div class="check-field" style="margin-bottom:12px">
+      <input type="checkbox" id="sa-resume">
+      <label for="sa-resume">Resume from previous SA search</label>
+      <span id="sa-state-exists" style="font-size:11px; color:var(--green); margin-left:6px; display:none">(state file found)</span>
+    </div>
+    <div style="display:flex; gap:8px; align-items:center;">
+      <button class="btn btn-primary" id="btn-sa-start">&#9654; Add SA Search to Queue</button>
+    </div>
+    <div class="form-hint" style="margin-top:8px;">Adds candidates to the queue one at a time; press <b>Start queue</b> below to run them. To stop a search, use the queue <b>Stop</b> or experiment <b>Kill</b> button. Live status shows in its own card below; the completed search is saved to the Analyze page.</div>
+  </div>
+
+  <!-- Grid search panel -->
+  <div id="panel-grid" class="params-panel" style="display:none">
+    <div class="form-hint" style="margin-bottom:10px;">Uses the defaults as base config. All combinations are added as a named group automatically.</div>
+    <div class="section-label" style="margin-bottom:4px;">Vary parameters</div>
+    <div class="form-hint" style="margin-bottom:8px;">Enter comma-separated values to vary a parameter across combinations, or a single value to fix it for all runs.</div>
+    <div id="gs-params-grid" style="display:grid; grid-template-columns:auto 1fr; gap:6px 12px; align-items:center;">
+      <!-- rows injected by JS -->
+    </div>
+    <div style="margin-top:14px; font-size:12px; color:var(--text-mid);" id="gs-combo-count"></div>
+  </div>
+</div>

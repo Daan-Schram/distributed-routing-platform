@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Analyze Results{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="/static/css/analyze.css">
+<link rel="stylesheet" href="/static/css/compare.css">
+<link rel="stylesheet" href="/static/css/routes.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="/static/js/netmap.js"></script>
+<script src="/static/js/group_view.js"></script>
+{% endblock %}
+
+{% block nav_extra %}<button id="compare-btn" class="compare-btn">Compare &#x229E;</button>{% endblock %}
+
+{% block content %}
+<div class="main-wrap">
+  {% include "partials/analyze/sidebar.html" %}
+  <div class="right-panel" id="right-panel">
+    <div class="empty-state">Select an experiment from the list</div>
+  </div>
+</div>
+{% include "partials/analyze/modals.html" %}
+{% endblock %}

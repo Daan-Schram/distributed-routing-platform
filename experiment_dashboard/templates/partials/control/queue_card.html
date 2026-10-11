@@ -1,0 +1,46 @@
+<!-- Running experiment status + kill -->
+<div class="card">
+  <div class="card-header">
+    <span class="badge">▶</span>
+    <span>Running Experiment</span>
+    <div style="margin-left:auto; display:flex; gap:8px; align-items:center;">
+      <span id="running-status-text" style="font-size:12px; color:var(--text-dim); font-family:var(--mono)">No experiment running</span>
+      <button class="btn btn-red" id="btn-kill" style="display:none">&#9632; Kill Experiment</button>
+    </div>
+  </div>
+</div>
+
+<!-- Queue controls + table -->
+<div class="card">
+  <div class="card-header">
+    <span class="badge">Q</span>
+    <span id="queue-heading">Queue (0 items)</span>
+    <div style="margin-left:auto; display:flex; gap:6px;">
+      <button class="btn btn-green" id="btn-start">&#9654; Start queue</button>
+      <button class="btn btn-ghost" id="btn-stop" style="display:none">&#9646;&#9646; Pause</button>
+      <button class="btn btn-ghost" id="btn-clear">Clear</button>
+    </div>
+  </div>
+  <div class="card-body" style="padding:0">
+    <div id="empty-msg">No experiments queued yet. Add one above.</div>
+    <table class="queue-table" id="queue-table" style="display:none">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Algorithm</th>
+          <th>Network</th>
+          <th>Workers</th>
+          <th>Repeats</th>
+          <th>Max</th>
+          <th>Checkpoint</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="queue-tbody"></tbody>
+    </table>
+  </div>
+  <div style="padding:10px 16px; border-top:1px solid var(--border)">
+    <div class="status-bar" id="status-bar">Queue inactive &mdash; press Start to begin</div>
+  </div>
+</div>

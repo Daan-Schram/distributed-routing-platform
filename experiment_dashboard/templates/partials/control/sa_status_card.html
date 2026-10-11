@@ -1,0 +1,38 @@
+<!-- Simulated Annealing search status (own paper) -->
+<div class="card" id="sa-status-card" style="display:none">
+  <div class="card-header">
+    <span class="badge">SA</span>
+    <span>Simulated Annealing Search</span>
+    <span id="sa-settings" style="margin-left:auto; font-size:11px; color:var(--text-dim); font-family:var(--mono);"></span>
+  </div>
+  <div class="card-body">
+    <div id="sa-message" style="font-size:11px; color:var(--text-mid); font-family:var(--mono); margin-bottom:10px; min-height:16px;"></div>
+    <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+      <div style="flex:1; height:5px; background:var(--border); border-radius:99px; overflow:hidden;">
+        <div id="sa-progress-bar" style="height:100%; width:0%; background:var(--blue); transition:width 0.4s;"></div>
+      </div>
+      <span id="sa-progress-text" style="font-size:11px; color:var(--text-dim); font-family:var(--mono); white-space:nowrap;">0 / 0</span>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:12px;">
+      <div class="sa-stat"><div class="sa-stat-label">Temperature</div><div class="sa-stat-val" id="sa-temperature">—</div></div>
+      <div class="sa-stat"><div class="sa-stat-label">Current ATT</div><div class="sa-stat-val" id="sa-current-att">—</div></div>
+      <div class="sa-stat best"><div class="sa-stat-label">Best ATT</div><div class="sa-stat-val" id="sa-best-att">—</div></div>
+    </div>
+    <div style="margin-bottom:12px;">
+      <div class="sa-sublabel">Temperature schedule</div>
+      <div id="sa-temp-chart" style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:4px 6px;"></div>
+      <div id="sa-temp-caption" style="font-size:10px; color:var(--text-dim); font-family:var(--mono); margin-top:3px;"></div>
+    </div>
+    <div style="margin-bottom:10px;">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:4px;">
+        <span class="sa-sublabel" style="margin:0">Best Solution</span>
+        <button class="btn btn-secondary btn-small" type="button" id="sa-apply-best" style="display:none;">Apply to Custom</button>
+      </div>
+      <div id="sa-best-solution" class="sa-box" style="color:var(--text); white-space:pre-wrap; word-break:break-all;">—</div>
+    </div>
+    <div>
+      <div class="sa-sublabel">Recent Iterations</div>
+      <div id="sa-history" class="sa-box" style="max-height:130px; overflow-y:auto; white-space:pre; color:var(--text-mid);">—</div>
+    </div>
+  </div>
+</div>

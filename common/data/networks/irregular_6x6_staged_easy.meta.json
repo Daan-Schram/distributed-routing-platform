@@ -1,0 +1,15 @@
+{
+  "duration": 2100,
+  "period": null,
+  "phases": [
+    {
+      "duration": 1500,
+      "period": 4.0
+    },
+    {
+      "duration": 600,
+      "period": 2.0
+    }
+  ],
+  "created_at": "2026-04-28T08:10:53.426926+00:00"
+}
